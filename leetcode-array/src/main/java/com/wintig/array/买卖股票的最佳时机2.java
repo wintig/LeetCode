@@ -14,7 +14,7 @@ package com.wintig.array;
 
  https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/22/
  */
-public class subject2018年07月14日 {
+public class 买卖股票的最佳时机2 {
 
     public static void main(String[] args) {
         int[] prices = {7,1,5,3,6,4};

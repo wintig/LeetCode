@@ -15,7 +15,7 @@ package com.wintig.array;
 
  https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/21/
  */
-public class subjec001 {
+public class 从排序数组中删除重复项 {
 
 
     public static void main(String[] args) {
@@ -25,7 +25,7 @@ public class subjec001 {
 
         //int[] nums = {1,1};
 
-        System.out.println(subjec001.removeDuplicates(nums));
+        System.out.println(从排序数组中删除重复项.removeDuplicates(nums));
     }
 
     public static int removeDuplicates(int[] nums) {
