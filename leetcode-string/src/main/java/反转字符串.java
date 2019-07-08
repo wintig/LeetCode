@@ -15,6 +15,8 @@
 
  输入：["H","a","n","n","a","h"]
  输出：["h","a","n","n","a","H"]
+
+ https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/
  */
 
 public class 反转字符串 {
