@@ -28,6 +28,10 @@ public class 从排序数组中删除重复项 {
         System.out.println(从排序数组中删除重复项.removeDuplicates(nums));
     }
 
+    /**
+     * 因为是递增的数组，可以把问题转化成，求一个list中有多少段数据的问题
+     * 123344  可以看成 1/2/33/44 这四段
+     */
     public static int removeDuplicates(int[] nums) {
 
         if (nums.length == 0) {
