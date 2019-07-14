@@ -58,43 +58,118 @@ package com.wintig.array;
  */
 public class 有效的数独 {
 
-    public boolean isValidSudoku(char[][] board) {
+    public static void main(String[] args) {
 
-        for (int i = 0; i < board.length; i++) {
+        char[][] board = {
+                {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
 
-            int resultNum = 0;
+        char[][] board2 =
+                {
+                {'.','.','.',  '.','5','.',    '.','1','.'},
+                {'.','4','.',  '3','.','.',    '.','.','.'},
+                {'.','.','.',  '.','.','3',    '.','.','1'},
+
+                {'8','.','.',  '.','.','.',    '.','2','.'},
+                {'.','.','2',  '.','7','.',    '.','.','.'},
+                {'.','1','5',  '.','.','.',    '.','.','.'},
+
+                {'.','.','.',  '.','.','2',    '.','.','.'},
+                {'.','2','.',  '9','.','.',    '.','.','.'},
+                {'.','.','4',  '.','.','.',    '.','.','.'}
+        };
+
+        char[][] board3 =
+        {
+                {'5', '3', '.',    '.', '7', '.',    '.', '.', '.'},
+                {'6', '.', '.',    '1', '9', '5',    '.', '.', '.'},
+                {'.', '9', '8',    '.', '.', '.',    '.', '6', '.'},
+
+                {'8', '.', '.',    '.', '6', '.',    '.', '.', '3'},
+                {'4', '.', '.',    '8', '.', '3',    '.', '.', '1'},
+                {'7', '.', '.',    '.', '2', '.',    '.', '.', '6'},
+
+                {'.', '6', '.',    '.', '.', '.',    '2', '8', '.'},
+                {'.', '.', '.',    '4', '1', '9',    '.', '.', '5'},
+                {'.', '.', '.',    '.', '8', '.',    '.', '7', '9'}
+        };
+
+        System.out.println(isValidSudoku1());
+
+    }
+
+    public static boolean isValidSudoku1() {
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.println("i : "+ (3 * (i/3) + j/3) + " j : "+ (3 * (i % 3) + j % 3));
+            }
+
+            System.out.println();
+        }
+
+        return true;
+    }
+
+
+
+
+    public static boolean isValidSudoku(char[][] board) {
+
+
+
+        // 检查每一行
+        for (int i = 0; i < 9; i++) {
+
+            int row[] = new int[10];
+            int rel[] = new int[10];
 
             for (int j = 0; j < board[i].length; j++) {
 
-                if (board[i][j] == '.') {
-                    continue;
+                if (board[i][j] != '.') {
+                    row[board[i][j] - '0']++;
+                    if (row[board[i][j] - '0'] > 1) {
+                        return false;
+                    }
                 }
 
-                resultNum += Integer.parseInt(String.valueOf(board[i][j]));
-
-                if (resultNum > 45) {
-                    return false;
+                if (board[j][i] != '.') {
+                    rel[board[i][j] - '0']++;
+                    if (rel[board[j][i] - '0'] > 1) {
+                        return false;
+                    }
                 }
+
+
             }
         }
 
-        for (int i = 0; i < board.length; i++) {
 
-            int resultNum = 0;
+        // 检查每一列
+        for (int i = 0; i < 9; i++) {
 
-            for (int j = 0; j < board[i].length; j++) {
+            int col[] = new int[10];
+
+            for (int j = 0; j < 9; j++) {
 
                 if (board[j][i] == '.') {
                     continue;
                 }
 
-                resultNum += Integer.parseInt(String.valueOf(board[j][i]));
 
-                if (resultNum > 45) {
-                    return false;
-                }
             }
         }
+
+
+
 
         return true;
     }
