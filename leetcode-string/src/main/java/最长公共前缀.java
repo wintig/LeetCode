@@ -20,9 +20,22 @@ public class 最长公共前缀 {
 
     public static void main(String[] args) {
 
+        String[] strs = {"flower","flow","flight"};
+        String[] strs2 = {"dog","racecar","car"};
+
+        String[] strs3 = {};
+
+        String[] strs4 = {"a"};
+
+        System.out.println(longestCommonPrefix(strs4));
+
     }
 
     public static String longestCommonPrefix(String[] strs) {
+
+        if (strs.length == 0) {
+            return "";
+        }
 
         int minLen = strs[0].length();
         StringBuffer result = new StringBuffer();
@@ -33,10 +46,19 @@ public class 最长公共前缀 {
             }
         }
 
+        for (int i = 0; i < minLen; i++) {
+            int[] num = new int[26];
+            for (int j = 0; j < strs.length; j++) {
+                num[strs[j].charAt(i) - 'a']++;
+            }
+            if (num[strs[0].charAt(i) - 'a'] == strs.length) {
+                result.append(strs[0].charAt(i));
+            } else {
+                return result.toString();
+            }
+        }
 
-
-
-        return "";
+        return result.toString();
     }
 
 }
