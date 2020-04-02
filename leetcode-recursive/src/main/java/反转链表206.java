@@ -6,7 +6,7 @@ public class 反转链表206 {
         listNode.next.next = new ListNode(3);
         listNode.next.next.next = new ListNode(4);
         listNode.next.next.next.next = new ListNode(5);
-        reverseList2(listNode);
+        reverseList(listNode);
         System.out.println(listNode);
     }
 
